@@ -465,12 +465,8 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"dnsseed.bluematt.me", "bitseed.xf2.org", "dnsseed.bitcoin.dashjr.org", "seed.bitcoin.sipa.be", "kjy2eqzk4zwi5zd3.onion", ""};
-static const string testnet_seeds[] = {"testnet-seed.alexykot.me",
-                                       "testnet-seed.bitcoin.petertodd.org",
-                                       "testnet-seed.bluematt.me",
-                                       "testnet-seed.bitcoin.schildbach.de",
-                                       ""};
+static const string mainnet_seeds[] = {"seed.nav.io", ""};
+static const string testnet_seeds[] = {"testnet.nav.io", "testnet2.nav.io", ""};
 static const string *seeds = mainnet_seeds;
 static vector<string> vSeeds;
 
@@ -534,10 +530,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0x0b;
-      pchMessageStart[1] = 0x11;
-      pchMessageStart[2] = 0x09;
-      pchMessageStart[3] = 0x07;
+      pchMessageStart[0] = 0x1c;
+      pchMessageStart[1] = 0x03;
+      pchMessageStart[2] = 0xbb;
+      pchMessageStart[3] = 0x83;
       seeds = testnet_seeds;
       fTestNet = true;
   }

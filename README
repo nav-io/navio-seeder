@@ -1,3 +1,17 @@
+Navio DNS seeder
+================
+
+Fork of sipa/bitcoin-seeder with Navio network defaults baked in:
+  mainnet magic bd5fc300, P2P port 48470, seed seed.nav.io
+  testnet magic 1c03bb83, P2P port 33670 (use --testnet)
+
+Run (mainnet, authoritative for seed.nav.io):
+  ./dnsseed -h seed.nav.io -n <ns-hostname> -m <admin-mbox>
+
+Network params can still be overridden with --magic <hex> / --p2port <n>.
+
+------------------------------------------------------------------------
+
 bitcoin-seeder
 ==============
 
