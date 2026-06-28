@@ -18,6 +18,10 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <features.h>
+
+/* glibc >= 2.38 provides strlcpy/strlcat; avoid redefining them there. */
+#if !(defined(__GLIBC__) && defined(__GLIBC_PREREQ) && __GLIBC_PREREQ(2, 38))
 
 /*
  * Copy src to string dst of size siz.  At most siz-1 characters
@@ -87,4 +91,6 @@ inline size_t strlcat(char *dst, const char *src, size_t siz)
 
     return(dlen + (s - src)); /* count does not include NUL */
 }
+#endif /* strlcpy/strlcat fallback */
+
 #endif
